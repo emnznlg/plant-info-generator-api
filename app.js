@@ -91,7 +91,8 @@ app.post("/identify", upload.single("image"), async (req, res) => {
 
     const response = result.response.candidates[0].content.parts[0].text;
 
-    res.json({
+    res.status(200).json({
+      status: "success",
       data: JSON.parse(response),
     });
   } catch (error) {
